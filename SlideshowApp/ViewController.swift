@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nextBtnOutlet: UIButton!
     
+    @IBOutlet weak var psBtnOutlet: UIButton!
     @IBOutlet weak var backBtnOutlet: UIButton!
     
     @IBAction func onTap(_ sender: Any) {
@@ -26,16 +27,18 @@ class ViewController: UIViewController {
     
     var timer = Timer()
     
-    @IBAction func playStopBtn(_ sender: Any) {
+    @IBAction func playStopBtn(_ sender: UIButton) {
         if self.timer.isValid == true{
             timer.invalidate()
             nextBtnOutlet.isEnabled = true
             backBtnOutlet.isEnabled = true
+            sender.setTitle("再生", for: .normal)
         }
         else{
             self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(slideShow(_:)), userInfo: nil, repeats: true)
             nextBtnOutlet.isEnabled = false
             backBtnOutlet.isEnabled = false
+            sender.setTitle("一時停止", for: .normal)
         }
     }
     
