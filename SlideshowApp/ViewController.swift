@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(slideShow(_:)), userInfo: nil, repeats: true)
             nextBtnOutlet.isEnabled = false
             backBtnOutlet.isEnabled = false
-            sender.setTitle("一時停止", for: .normal)
+            sender.setTitle("停止", for: .normal)
         }
     }
     
